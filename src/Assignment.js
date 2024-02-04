@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import axios from "axios";
-import LOGO from "./LogoEV.png"
+import LOGO from "./LogoEV.png";
 
 function Assignment() {
   const [destructuredResponse, setDestructuredResponse] = useState();
@@ -10,16 +10,10 @@ function Assignment() {
     try {
       const response = await axios.get("https://randomuser.me/api");
       setDestructuredResponse(response.data.results);
-      console.log("Api Response:", response);
     } catch (error) {
       console.error(error.message);
     }
   };
-
-  // useEffect(() => {
-  //   fetchData();
-  //   console.log("called");
-  // },[]);
 
   function reset() {
     setDestructuredResponse();
@@ -27,14 +21,12 @@ function Assignment() {
   return (
     <div className="container">
       <div className="header">
-      <img src={LOGO} alt="logo" className="logo"></img>
-      <h1>
-        <span className="east">east</span>
-        <span className="vantage">vantage 
-        </span>
-        <span>&nbsp;Assignment</span>
-        
-      </h1>
+        <img src={LOGO} alt="logo" className="logo"/>
+        <h1>
+          <span className="east">east</span>
+          <span className="vantage">vantage</span>
+          <span>&nbsp;Assignment</span>
+        </h1>
       </div>
       <input
         type="button"
@@ -68,9 +60,6 @@ function Assignment() {
             <label className="label">Email:</label>
             <p className="value">{destructuredResponse[0]?.email}</p>
           </div>
-          {/* <pre style={{ textAlign: "left" }}>
-            {JSON.stringify(destructuredResponse, null, 2)}
-          </pre> */}
         </div>
       )}
     </div>
